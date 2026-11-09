@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Recensioni indipendenti di prodotti tecnologici.">
+<title>TechReview | Recensioni Tecnologia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a class="logo" href="#">TechReview<span>.</span></a>
+  <nav>
+    <a href="#prodotti">Prodotti</a>
+    <a href="#recensioni">Recensioni</a>
+    <a href="#scrivi">Scrivi una recensione</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <span class="etichetta">IL MONDO DELLA TECNOLOGIA</span>
+  <h1>La tecnologia,<br>vista dagli utenti.</h1>
+  <p>Scopri, confronta e condividi le tue esperienze con i migliori prodotti tecnologici.</p>
+  <a class="cta" href="#prodotti">Esplora i prodotti</a>
+</section>
+
+<main>
+  <section id="prodotti">
+    <div class="titolo">
+      <span>SCOPRI</span>
+      <h2>Prodotti in evidenza</h2>
+    </div>
+    <input id="cerca" placeholder="Cerca smartphone, computer, cuffie...">
+    <div id="elenco" class="griglia"></div>
+  </section>
+
+  <section id="recensioni">
+    <div class="titolo">
+      <span>COMMUNITY</span>
+      <h2>Ultime recensioni</h2>
+    </div>
+    <div id="commenti"></div>
+  </section>
+
+  <section id="scrivi">
+    <div class="titolo">
+      <span>LA TUA OPINIONE CONTA</span>
+      <h2>Scrivi una recensione</h2>
+    </div>
+    <form id="formRecensione">
+      <input id="nome" placeholder="Il tuo nome" required maxlength="40">
+      <input id="prodotto" placeholder="Nome del prodotto" required maxlength="80">
+      <label for="voto">La tua valutazione</label>
+      <select id="voto" required>
+        <option value="5">★★★★★ - Eccellente</option>
+        <option value="4">★★★★☆ - Ottimo</option>
+        <option value="3">★★★☆☆ - Buono</option>
+        <option value="2">★★☆☆☆ - Sufficiente</option>
+        <option value="1">★☆☆☆☆ - Scarso</option>
+      </select>
+      <textarea id="testo" placeholder="Racconta la tua esperienza..." required maxlength="1000"></textarea>
+      <button type="submit">Pubblica recensione</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <strong>TechReview.</strong>
+  <p>Opinioni, tecnologia e innovazione.</p>
+  <small>© 2026 TechReview</small>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
