@@ -40,6 +40,7 @@
       <span>COMMUNITY</span>
       <h2>Ultime recensioni</h2>
     </div>
+    <p id="statoRecensioni" role="status" aria-live="polite">Caricamento recensioni...</p>
     <div id="commenti"></div>
   </section>
 
@@ -49,7 +50,7 @@
       <h2>Scrivi una recensione</h2>
     </div>
     <form id="formRecensione">
-      <input id="nome" placeholder="Il tuo nome" required maxlength="40">
+      <input id="nome" placeholder="Il tuo nome" required maxlength="40" autocomplete="name">
       <input id="prodotto" placeholder="Nome del prodotto" required maxlength="80">
       <label for="voto">La tua valutazione</label>
       <select id="voto" required>
@@ -60,7 +61,8 @@
         <option value="1">★☆☆☆☆ - Scarso</option>
       </select>
       <textarea id="testo" placeholder="Racconta la tua esperienza..." required maxlength="1000"></textarea>
-      <button type="submit">Pubblica recensione</button>
+      <button id="pulsantePubblica" type="submit">Pubblica recensione</button>
+      <p id="messaggioInvio" role="status" aria-live="polite"></p>
     </form>
   </section>
 </main>
@@ -71,6 +73,8 @@
   <small>© 2026 TechReview</small>
 </footer>
 
+<!-- Libreria Supabase e codice del sito -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
 </body>
 </html>
