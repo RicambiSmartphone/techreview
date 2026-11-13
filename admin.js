@@ -75,7 +75,7 @@ async function caricaRecensioni() {
 
   const { data, error } = await supabaseAdmin
     .from("recensioni")
-    .select("id, nome, prodotto, voto, testo, creato_il, approvata")
+    .select("id, nome, prodotto, voto, testo, creato_il, approvata, risposta_admin")
     .order("creato_il", { ascending: false });
 
   if (error) {
@@ -103,6 +103,18 @@ async function caricaRecensioni() {
       addText("div", "meta", r.approvata ? "Stato: approvata e visibile sul sito" : "Stato: in attesa di approvazione")
     );
 
+    const replyLabel = addText("div", "meta", "Risposta pubblica di TechReview");
+    const replyInput = document.createElement("textarea");
+    replyInput.value = r.risposta_admin || "";
+    replyInput.placeholder = "Scrivi qui la risposta al cliente...";
+    replyInput.rows = 3;
+    replyInput.maxLength = 1000;
+
+    const replyButton = addText("button", "secondary", "Pubblica risposta");
+    replyButton.type = "button";
+    replyButton.addEventListener("click", () => salvaRisposta(r.id, replyInput, replyButton));
+    card.append(replyLabel, replyInput, replyButton);
+
     const actions = document.createElement("div");
     actions.className = "actions";
 
@@ -125,6 +137,31 @@ async function caricaRecensioni() {
     card.append(actions);
     reviewList.append(card);
   });
+}
+
+
+async function salvaRisposta(id, campo, button) {
+  const risposta_admin = campo.value.trim();
+
+  if (risposta_admin.length > 1000) {
+    adminStatus.textContent = "La risposta è troppo lunga.";
+    return;
+  }
+
+  button.disabled = true;
+  const { error } = await supabaseAdmin
+    .from("recensioni")
+    .update({ risposta_admin: risposta_admin || null })
+    .eq("id", id);
+
+  if (error) {
+    adminStatus.textContent = "Non è stato possibile salvare la risposta.";
+    console.error(error);
+    button.disabled = false;
+    return;
+  }
+
+  await caricaRecensioni();
 }
 
 async function aggiornaApprovazione(id, approvata, button) {

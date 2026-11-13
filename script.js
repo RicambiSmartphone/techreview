@@ -52,6 +52,18 @@ function mostraRecensioni(recensioni) {
     const testo = document.createElement("p"); testo.textContent = r.testo;
     const autore = document.createElement("small"); autore.textContent = "Recensione di " + r.nome;
     card.append(prodotto, voto, testo, autore);
+
+    if (r.risposta_admin) {
+      const risposta = document.createElement("div");
+      risposta.className = "risposta-techreview";
+      const titoloRisposta = document.createElement("strong");
+      titoloRisposta.textContent = "Risposta di TechReview";
+      const testoRisposta = document.createElement("p");
+      testoRisposta.textContent = r.risposta_admin;
+      risposta.append(titoloRisposta, testoRisposta);
+      card.append(risposta);
+    }
+
     contenitore.append(card);
   });
 }
@@ -61,7 +73,7 @@ async function caricaRecensioni() {
   stato.textContent = "Caricamento recensioni...";
   const { data, error } = await clientSupabase
     .from("recensioni")
-    .select("id, nome, prodotto, voto, testo, creato_il")
+    .select("id, nome, prodotto, voto, testo, creato_il, risposta_admin")
     .order("creato_il", { ascending: false });
   if (error) {
     console.error("Errore caricamento recensioni:", error);
