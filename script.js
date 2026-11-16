@@ -84,7 +84,7 @@ async function caricaRecensioni() {
   mostraRecensioni(data);
 }
 
-document.getElementById("cerca").addEventListener("input", e => mostraProdotti(e.target.value));
+document.getElementById("cerca")?.addEventListener("input", e => mostraProdotti(e.target.value));
 
 document.getElementById("formRecensione").addEventListener("submit", async e => {
   e.preventDefault();
