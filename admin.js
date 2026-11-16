@@ -142,6 +142,7 @@ async function caricaRecensioni() {
 
 async function salvaRisposta(id, campo, button) {
   const risposta_admin = campo.value.trim();
+adminStatus.textContent = "Pulsante premuto: sto salvando la risposta...";
 
   if (risposta_admin.length > 1000) {
     adminStatus.textContent = "La risposta è troppo lunga.";
@@ -195,4 +196,5 @@ async function eliminaRecensione(id, button) {
   await caricaRecensioni();
 }
 
-verificaSessione();
+verificaSessione();async function salvaRisposta
+
