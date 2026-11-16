@@ -160,3 +160,34 @@ footer {
   .hero { padding: 75px 20px; }
   .hero h1 { letter-spacing: -2px; }
 }
+
+
+#riparazioni {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+#riparazioni .servizi {
+  max-width: 750px;
+  margin: 30px auto 0;
+  padding: 35px;
+  background: #f5f7fb;
+  border-radius: 20px;
+  border: 1px solid #e5e9f0;
+}
+
+#riparazioni .servizi h3 {
+  margin: 25px 0 10px;
+  color: #1d1d1f;
+}
+
+#riparazioni .servizi p {
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+#riparazioni .cta {
+  display: inline-block;
+  margin-top: 15px;
+}
