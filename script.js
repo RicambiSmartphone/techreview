@@ -120,5 +120,5 @@ document.getElementById("formRecensione").addEventListener("submit", async e => 
   await caricaRecensioni();
 });
 
-mostraProdotti();
+if (document.getElementById("elenco")) mostraProdotti();
 caricaRecensioni();
