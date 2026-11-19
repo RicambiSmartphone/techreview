@@ -196,5 +196,5 @@ async function eliminaRecensione(id, button) {
   await caricaRecensioni();
 }
 
-verificaSessione();async function salvaRisposta
+verificaSessione();
 
