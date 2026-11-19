@@ -196,5 +196,57 @@ async function eliminaRecensione(id, button) {
   await caricaRecensioni();
 }
 
-verificaSessione();
+
+const resetPanel = document.getElementById("resetPanel");
+const resetButton = document.getElementById("resetPasswordButton");
+
+resetButton.addEventListener("click", async () => {
+  const email = document.getElementById("email").value.trim();
+
+  if (!email) {
+    loginStatus.textContent = "Inserisci prima la tua email.";
+    return;
+  }
+
+  resetButton.disabled = true;
+  loginStatus.textContent = "Invio email di recupero...";
+
+  const { error } = await supabaseAdmin.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + window.location.pathname
+  });
+
+  resetButton.disabled = false;
+
+  loginStatus.textContent = error
+    ? "Errore nell'invio. Controlla la configurazione Supabase."
+    : "Email inviata! Controlla anche Spam e Posta indesiderata.";
+});
+
+supabaseAdmin.auth.onAuthStateChange((event) => {
+  if (event === "PASSWORD_RECOVERY") {
+    loginPanel.classList.add("hidden");
+    adminPanel.classList.add("hidden");
+    resetPanel.classList.remove("hidden");
+  }
+});
+
+document.getElementById("resetForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const password = document.getElementById("newPassword").value;
+  const status = document.getElementById("resetStatus");
+
+  status.textContent = "Salvataggio in corso...";
+
+  const { error } = await supabaseAdmin.auth.updateUser({ password });
+
+  if (error) {
+    status.textContent = "Errore: " + error.message;
+    return;
+  }
+
+  resetPanel.classList.add("hidden");
+  showLogin("Password aggiornata. Ora puoi accedere con la nuova password.");
+});
+\nverificaSessione();
 

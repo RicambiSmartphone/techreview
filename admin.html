@@ -47,7 +47,17 @@
         <input id="password" type="password" placeholder="La tua password" autocomplete="current-password" required>
         <button id="loginButton" type="submit">Accedi</button>
       </form>
+      <button id="resetPasswordButton" class="secondary" type="button">Password dimenticata?</button>
       <p id="loginStatus" class="status" role="status" aria-live="polite"></p>
+    </section>
+
+    <section id="resetPanel" class="panel hidden">
+      <h1>Imposta una nuova password</h1>
+      <form id="resetForm">
+        <input id="newPassword" type="password" placeholder="Nuova password" minlength="8" autocomplete="new-password" required>
+        <button type="submit">Salva nuova password</button>
+      </form>
+      <p id="resetStatus" class="status" role="status" aria-live="polite"></p>
     </section>
 
     <section id="adminPanel" class="panel hidden">
