@@ -248,5 +248,5 @@ document.getElementById("resetForm").addEventListener("submit", async (event) =>
   resetPanel.classList.add("hidden");
   showLogin("Password aggiornata. Ora puoi accedere con la nuova password.");
 });
-\nverificaSessione();
+verificaSessione();
 
