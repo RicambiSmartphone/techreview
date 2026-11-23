@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ricambismartphone.github.io/techreview/sitemap.xml
