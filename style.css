@@ -263,3 +263,81 @@ footer {
   border-radius: 20px;
   object-fit: contain;
 }
+
+/* Catalogo TechReview - grafica professionale */
+
+#catalogo {
+  background: #ffffff;
+  padding: 80px 20px;
+}
+
+#catalogo .titolo h2 {
+  font-size: 36px;
+  font-weight: 750;
+  letter-spacing: -1px;
+}
+
+#catalogo .foto-catalogo {
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+}
+
+#catalogo .catalogo-griglia {
+  max-width: 1100px;
+  margin: 40px auto;
+  gap: 25px;
+}
+
+#catalogo .ricambio {
+  background: #ffffff;
+  border: 1px solid #e5e9f0;
+  border-radius: 22px;
+  padding: 30px 24px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#catalogo .ricambio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+#catalogo .ricambio strong {
+  color: #0071e3;
+  font-size: 28px;
+}
+
+#catalogo .ricambio a {
+  background: #20b858;
+  color: white;
+  border-radius: 12px;
+  padding: 13px 20px;
+  transition: background 0.2s ease;
+}
+
+#catalogo .ricambio a:hover {
+  background: #168c43;
+}
+
+#chi-siamo {
+  padding: 75px 20px;
+  background: #f5f7fb;
+  text-align: center;
+}
+
+#chi-siamo .presentazione {
+  max-width: 800px;
+  margin: 30px auto 0;
+  padding: 35px;
+  background: white;
+  border-radius: 22px;
+  border: 1px solid #e5e9f0;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  line-height: 1.8;
+  color: #555;
+}
+
+#chi-siamo .presentazione strong {
+  display: block;
+  margin-top: 25px;
+  color: #0071e3;
+}
